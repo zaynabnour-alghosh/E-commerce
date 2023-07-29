@@ -1,0 +1,133 @@
+body{
+    font-family: 'Montserrat';font-size: 22px;
+    color:rgb(56, 36, 67);
+}
+.container{
+    display: flex;
+    flex-direction: row;
+}
+.cont{
+    display: flex;
+    width: 100%;   
+    height: 100%;
+}
+.left-dash{
+    display: flex;
+    flex-direction: column;
+    min-width: 6%;
+}
+.left-dash-container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color:#11d7d8;
+    height:100%;
+    gap:30px;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 10px;
+    padding-top:40px;
+}
+.right-cont{
+    display: flex;
+    width: 100%;
+    height:100%;
+    max-width: 2000px;
+}
+.right-dash{
+    height: 100%;
+    display: flex;
+    width: 100%;
+}
+.right-dash-container{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    
+}
+
+.right-dash-display-container{
+    display: flex;
+    height: 100%;
+    width: 100%;
+  
+}
+.display-container{
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    width: 100%;
+}
+.cart-list-container{
+    display: flex;
+    flex-direction: row;
+    height: 15%;
+    background-color:#fd9ab6 ;
+    gap:40px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    font-size: 20px;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+
+.products-of-category-container{
+    display: flex;
+    height: 100%;
+    background-color:#facfd9;
+    
+}
+.left-dash-container img{
+    height:50px;
+    width: 50px;
+}
+
+
+.cart-content{
+    display: flex;
+    height: 100%;
+    width:100%;
+}
+.cart-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap:60px;
+    /* overflow-x: hidden; */
+    overflow-y: auto;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-height: 600px;
+    padding-top: 30px;
+}
+.cart-item img{
+height: 200px;
+width: 300px;
+object-fit: cover;
+}
+.cart-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.details{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 50px;
+}
+.details button{
+    margin:5px;
+    border-radius: 5%;
+    padding:5px;
+    width: 30px;
+    background-color: #fd9ab6;
+    outline: gray;
+    border: 0px;
+}
+.qty{    
+    padding-right: 10px;
+}
