@@ -1,0 +1,251 @@
+body{
+    font-family: 'Montserrat';font-size: 22px;
+    color:rgb(56, 36, 67);
+}
+.container{
+    display: flex;
+    flex-direction: row;
+}
+.cont{
+    display: flex;
+    width: 100%;   
+    height: 100%;
+}
+.left-dash{
+    display: flex;
+    flex-direction: column;
+    min-width: 6%;
+}
+.left-dash-container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color:#11d7d8;
+    height:100%;
+    gap:30px;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 10px;
+    padding-top:40px;
+}
+.right-cont{
+    display: flex;
+    width: 100%;
+}
+.right-dash{
+    height:100%;
+    display: flex;
+    width: 94%;
+    
+}
+.right-dash-container{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+   width:100%;
+    
+}
+.search-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #aae2df;
+    height:100%;
+    gap:200px;
+    padding: 10px;
+    
+}
+.right-dash-search-container{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+.right-dash-display-container{
+    display: flex;
+    height: 100%;
+    width:75%;
+  
+}
+.display-container{
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    width: 100%;
+}
+.category-list-container{
+    display: flex;
+    flex-direction: row;
+    height: 15%;
+    background-color:#fd9ab6 ;
+    gap:40px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    font-size: 20px;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+.category-list-container a{
+    text-decoration: none;
+    color:rgb(56, 36, 67);
+}
+.products-of-category-container{
+    display: flex;
+    height: 100%;
+    background-color:#facfd9;
+    
+}
+.left-dash-container img{
+    height:50px;
+    width: 50px;
+}
+
+.search button {
+  color: #7c6a6a;
+  font-family: Nunito;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+
+}
+.search input{
+    border-color: transparent;
+    font-family: Nunito;
+    border-radius: 5px;
+}
+.search input:focus{
+    outline:none;
+    font-family: Nunito;
+    border-radius: 5px;
+    border-color: #7c6a6a;
+}
+.search{
+    display: flex;
+    flex-direction: row;
+    gap:15px;
+    height: 20px;
+}
+.search input[type="text"] {
+    width: 80%;
+    height: 40px;
+    font-size: 30px;
+    line-height: 1;
+    color:#7c6a6a;
+}
+.search input[type="text"]::placeholder {
+    color: #e16868;
+}
+
+.search img{
+    height:50px;
+    width: 50px;
+}
+.prod-content{
+    display: flex;
+    height: 100%;
+    width:100%;
+}
+.prod-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap:60px;
+    /* overflow-x: hidden; */
+    overflow-y: auto;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-height: 600px;
+    padding-top: 30px;
+}
+.prod{
+    height: 250px;
+    width:300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:30px;
+}
+.prod:onhover{
+    height: 100px;
+    width:400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:30px;
+}
+.details{
+    display:none;
+    position:absolute;
+    border-radius: 5px;
+    background-color: #f9f9ff;
+    overflow-y: auto;
+    
+}
+.content-prod{
+    display: flex;
+    flex-direction: column;
+}
+.prod:hover .details{
+    display: block;
+    height:250px;
+    width: 400px;
+}
+.action{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    padding-right: 40px;
+    gap:5px;
+}
+.prod-details{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+.details-content{
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    font-size: 12px;
+    align-items: flex-start;
+    justify-content: center;
+}
+.prod-details div img{
+    height: 150px;
+    width:250px;
+    padding-left:15px;
+    padding-top:15px;
+}
+.details-content p,h4,h3 {
+    margin:2px;
+}
+
+.prod img{
+    height:250px;
+    width: 350px;
+    object-fit:cover;
+    border: 5px;
+}
+.prod .prod-name{
+    text-align: center;
+}
+.action button{
+    padding:10px 10px;
+    height: 30px;
+    width:auto;
+    font-size: 10px;
+    border-radius: 10px;
+    background-color: #c49696;
+    border:0px;
+    text-align: center;
+    cursor: pointer;
+
+}
+.fav:hover{
+ background-color:#fd9ab6 ;
+
+}
+.fav i{
+    padding-top: 0px;
+    height:10px;
+}
