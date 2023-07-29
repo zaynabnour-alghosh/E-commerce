@@ -1,0 +1,120 @@
+body{
+    background-image: url("../images/home.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;    
+    width: 100vw;
+    height:100%;  
+    /* font-family: 'Urbanist';font-size: 22px;  */
+    /* font-family: 'Roboto', sans-serif;font-size: 22px; */
+    font-family: 'Montserrat';font-size: 22px;
+    color:rgb(56, 36, 67)
+}
+.container{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top:50px;
+    margin-bottom:50px;
+    
+}
+.signup-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(217, 119, 158, 0.5);
+    max-height:600px;
+    height:550px;   
+    width:500px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 8px #181744; ;
+    
+}
+.signup-form{
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    width: 100%;
+    
+}
+.signup-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    padding-top:10px;
+    margin:0px;
+}
+.signup-header h2{    
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.signup-body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap:20px;
+    width: 100%;
+}
+.rows{
+    display: flex;
+    flex-direction: row;
+    gap:50px;
+}
+.row{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content:flex-start;
+}
+.row input{
+    width: 100%;
+    margin-top:10px;
+    height:30px;
+    border-radius: 5px;
+    border-color: transparent;
+}
+.row input:focus { 
+    outline: none !important;
+    border-color: #719ECE;
+    box-shadow: 0 0 10px #719ECE;
+ }
+
+.row a{
+    text-decoration: none;
+    color:aliceblue
+}
+.signup-footer .row{
+    align-items: center;    
+}
+.rfooter{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+.btn{
+    font-size:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    font-family:  'Montserrat';font-size: 15px;
+    height:20px;
+}
+.btn:hover{
+    background-color:  rgba(86, 149, 221, 0.5);
+    font-size:10px;
+    padding:5px;
+    font-family:  'Montserrat';
+    font-size: 18px;
+    box-shadow: 0 0 10px #719ECE;
+    color:aliceblue;
+}
