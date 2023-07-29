@@ -192,8 +192,8 @@ body{
 }
 .action{
     display: flex;
-    flex-direction: row;
-    justify-content:flex-end;
+    flex-direction: column;
+    margin-left: 40px;
     padding-right: 40px;
     gap:5px;
 }
@@ -241,6 +241,7 @@ body{
     cursor: pointer;
 
 }
+
 .fav:hover{
  background-color:#fd9ab6 ;
 
