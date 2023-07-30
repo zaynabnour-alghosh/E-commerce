@@ -36,5 +36,6 @@ Route::get('/get_user/{id}', [UserController::class, "showUserInfo"]);
 Route::post('/update_user/{id}', [UserController::class, "updateUserInfo"]);
 
 Route::post('/addToFav', [FavouriteController::class, "addToFavorites"]);
+Route::post('/removeFav', [FavouriteController::class, "removeFavorites"]);
 
 

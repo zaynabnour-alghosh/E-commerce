@@ -35,4 +35,11 @@ class FavouriteController extends Controller
             ],
         ]);
     }
+    public function removeFavorites(Request $request){
+        $userId = $request->user_id;
+        $productId = $request->product_id;        
+        $fav =Favourite::where('product_id', $productId)
+                       ->where('user_id', $userId)->delete();
+        return json_encode(["success" => true]);
+    }
 }
