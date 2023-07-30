@@ -84,7 +84,7 @@ pages.page_forget_pass =() => {
         if(response.data.status=="success"){
             password.removeAttribute("disabled","disabled");
             confirmPassword.removeAttribute("disabled","disabled")
-            btnChange.addEventListener("click",()=>{
+            btnChange.addEventListener("click",async()=>{
                 if(password.value==="" ||confirmPassword.value===""){
                     errorPwd.style.display="block";
                     errorCPwd.style.display="block";
@@ -99,9 +99,14 @@ pages.page_forget_pass =() => {
                 else{                    
                     errorConfirm.style.display="none";
                 }
-            })
-            
-            
+                const pwd=password.value
+                const data2 = new FormData()
+                data2.append("email", email)
+                data2.append("password",pwd)
+                const response2 = await axios.post(pages.base_url + "change_password", data2);
+                console.log(response2.data.state);
+                window.location.href = "index.html"
+            })  
         }    
     }
 })
