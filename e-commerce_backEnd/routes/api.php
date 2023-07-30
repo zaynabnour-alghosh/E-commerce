@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,3 +27,7 @@ Route::controller(AuthController::class)->group(function () {
 Route::post('/add_update_product/{id?}', [AdminController::class, "addOrUpdateProduct"]);
 Route::get('/get_products/{id?}', [AdminController::class, "getProducts"]);
 Route::get('/delete_product/{id}', [AdminController::class, "deleteProduct"]);
+
+Route::post('/add_to_cart', [CartController::class, "addToCart"]);
+
+
