@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="src/styles/edit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <div class="cont">
+                <div class="left-dash">
+                    <div class="left-dash-container">
+                        <div class="home"><a href="dashboard.html"><img src="src/images/main.png" alt="home-img"></a></div>
+                        <div class="cart"><a href="dash-cart.html"><img src="src/images/cart.png" alt="cart-img"></a></div>
+                        <div class="favorite"><a href="dash-fav.html"><img src="src/images/favorite.png" alt="fav-img"></a></div>
+                        <div class="edit"><a href="edit.html"><img src="src/images/edit.png" alt="edit-img"></a></div>
+                        <div class="profile"><a href="dash-profile.html"><img src="src/images/profile.png" alt="profile-img"></a></div>
+                        <div class="signout"><a href="index.html"><img src="src/images/signout.png" alt="signout-img"></a></div>
+                    </div>
+                </div>
+                <div class="right-cont">
+                    <div class="right-dash">
+                        <div class="right-dash-container">                   
+                            <div class="right-dash-display-container">
+                                <div class="display-container">
+                                    <div class="form-container">
+                                        Edit Products
+                                        <div><button class="btn" id="create-product-button">ADD PRODUCT</button></div>
+                                    </div>
+                                    <!-- The Modal -->
+                                    <div id="myModal" class="modal">
+                                        <!-- Modal content -->
+                                        <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <div class="prod-edit">
+                                            <div class="edit-header">
+                                                <img src="src/images/home.jpg" alt="">                                                               
+                                            </div>
+                                            <div class="edit-body">
+                                                <div class="rows">
+                                                    <div class="row">
+                                                        <label for="prod_name">Product Name</label>
+                                                        <input type="text" placeholder="Product Name" id="first_name">
+                                                    </div>
+                                                    <div class="row">
+                                                        <label for="prod_desc">Descroption</label>
+                                                        <input type="text" placeholder="Description" id="prod_desc">
+                                                    </div>
+                                                </div>
+                                                <div class="rows">
+                                                    <div class="row">
+                                                        <label for="price">Price</label>
+                                                        <input type="text" placeholder="Price" id="price">
+                                                    </div>
+                                                    <div class="row">
+                                                        <label for="image">Image</label>
+                                                        <input type="file"  id="image" class="file">
+                                                    </div>
+                                                </div>
+                                                <div class="buttons">
+                                                    <!-- <button class="cancel-button btn">Cancel</button> -->
+                                                    <button class="btn">Add</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="edit-content">
+                                        <div class="edit-container">
+                                            <div class="edit-card">
+                                                <div class="edit-form">
+                                                    <form>
+                                                        <div class="prod-edit">
+                                                            <div class="edit-header">
+                                                                <img src="src/images/home.jpg" alt="">                                                               
+                                                            </div>
+                                                            <div class="edit-body">
+                                                                <div class="rows">
+                                                                    <div class="row">
+                                                                        <label for="prod_name">Product Name</label>
+                                                                        <input type="text" placeholder="Product Name" id="first_name">
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label for="prod_desc">Descroption</label>
+                                                                        <input type="text" placeholder="Description" id="prod_desc">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rows">
+                                                                    <div class="row">
+                                                                        <label for="price">Price</label>
+                                                                        <input type="text" placeholder="Price" id="price">
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label for="image">Image</label>
+                                                                        <input type="file"  id="image" class="file">
+                                                                    </div>
+                                                                </div>
+                                                            </div> 
+                                                            <div class="edit-footer">
+                                                                <div class="rows rfooter">
+                                                                    <div class="rowf">                
+                                                                        <button class="btn">Delete</button>
+                                                                        <button class="btn">Update</button>
+                                                                    </div>                                                                      
+                                                                </div>
+                                                            </div>   
+                                                        </div>
+                                                        <div class="prod-edit">
+                                                            <div class="edit-header">
+                                                                <img src="src/images/home.jpg" alt="">                                                               
+                                                            </div>
+                                                            <div class="edit-body">
+                                                                <div class="rows">
+                                                                    <div class="row">
+                                                                        <label for="prod_name">Product Name</label>
+                                                                        <input type="text" placeholder="Product Name" id="first_name">
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label for="prod_desc">Descroption</label>
+                                                                        <input type="text" placeholder="Description" id="prod_desc">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rows">
+                                                                    <div class="row">
+                                                                        <label for="price">Price</label>
+                                                                        <input type="text" placeholder="Price" id="price">
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label for="image">Image</label>
+                                                                        <input type="file"  id="image" class="file">
+                                                                    </div>
+                                                                </div>
+                                                            </div> 
+                                                            <div class="edit-footer">
+                                                                <div class="rows rfooter">
+                                                                    <div class="rowf">                
+                                                                        <button class="btn">Delete</button>
+                                                                        <button class="btn">Update</button>
+                                                                    </div>                                                                      
+                                                                </div>
+                                                            </div>   
+                                                        </div>
+                                                        <div class="prod-edit">
+                                                            <div class="edit-header">
+                                                                <img src="src/images/home.jpg" alt="">                                                               
+                                                            </div>
+                                                            <div class="edit-body">
+                                                                <div class="rows">
+                                                                    <div class="row">
+                                                                        <label for="prod_name">Product Name</label>
+                                                                        <input type="text" placeholder="Product Name" id="first_name">
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label for="prod_desc">Descroption</label>
+                                                                        <input type="text" placeholder="Description" id="prod_desc">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rows">
+                                                                    <div class="row">
+                                                                        <label for="price">Price</label>
+                                                                        <input type="text" placeholder="Price" id="price">
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label for="image">Image</label>
+                                                                        <input type="file"  id="image" class="file">
+                                                                    </div>
+                                                                </div>
+                                                            </div> 
+                                                            <div class="edit-footer">
+                                                                <div class="rows rfooter">
+                                                                    <div class="rowf">                
+                                                                        <button class="btn">Delete</button>
+                                                                        <button class="btn">Update</button>
+                                                                    </div>                                                                      
+                                                                </div>
+                                                            </div>   
+                                                        </div>
+                                                        <div class="prod-edit">
+                                                            <div class="edit-header">
+                                                                <img src="src/images/home.jpg" alt="">                                                               
+                                                            </div>
+                                                            <div class="edit-body">
+                                                                <div class="rows">
+                                                                    <div class="row">
+                                                                        <label for="prod_name">Product Name</label>
+                                                                        <input type="text" placeholder="Product Name" id="first_name">
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label for="prod_desc">Descroption</label>
+                                                                        <input type="text" placeholder="Description" id="prod_desc">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rows">
+                                                                    <div class="row">
+                                                                        <label for="price">Price</label>
+                                                                        <input type="text" placeholder="Price" id="price">
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <label for="image">Image</label>
+                                                                        <input type="file"  id="image" class="file">
+                                                                    </div>
+                                                                </div>
+                                                            </div> 
+                                                            <div class="edit-footer">
+                                                                <div class="rows rfooter">
+                                                                    <div class="rowf">                
+                                                                        <button class="btn">Delete</button>
+                                                                        <button class="btn">Update</button>
+                                                                    </div>                                                                      
+                                                                </div>
+                                                            </div>   
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="src/script/add-product.js"></script>
+</body>
+</html>
