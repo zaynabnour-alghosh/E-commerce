@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\trialController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,4 +22,4 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('refresh', 'refresh');
 
 });
-// Route::post('/return', [trialController::class, "test"]);
+
