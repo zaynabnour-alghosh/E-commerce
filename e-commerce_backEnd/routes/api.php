@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,6 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('refresh', 'refresh');
 
 });
+
+Route::post('/add_update_product/{id?}', [AdminController::class, "addOrUpdateProduct"]);
 
