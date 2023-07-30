@@ -6,6 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
+    public function checkEmail(Request $request){
+        $user = User::where("email", $request->email)->first();
+    
+    if ($user) {
+        return response()->json(["status" => "success", "email" => $user->email]);
+    } else {
+        return response()->json(["status" => "failure"]);
+    }
+    }
     public function showUserInfo($id){
         $user=User::find($id);
         return response()->json($user);
