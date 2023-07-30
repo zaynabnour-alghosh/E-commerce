@@ -32,5 +32,6 @@ Route::get('/delete_product/{id}', [AdminController::class, "deleteProduct"]);
 
 Route::post('/add_to_cart', [CartController::class, "addToCart"]);
 Route::get('/get_user/{id}', [UserController::class, "showUserInfo"]);
+Route::post('/update_user/{id}', [UserController::class, "updateUserInfo"]);
 
 
