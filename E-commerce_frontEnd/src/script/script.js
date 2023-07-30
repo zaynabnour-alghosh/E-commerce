@@ -43,19 +43,70 @@ pages.page_index = () => {
             // console.log(emailInput.value,passwordInput.value);
         
             console.log('clicked')
-                const email = emailInput.value;
-                const pass = passwordInput.value;
-                const data = new FormData()
-                data.append("email", email)
-                data.append("password", pass)
-                const response = await axios.post(pages.base_url + "login", data);
-                // console.log(response.data);
-                if(response.data){
-                    userId=response.data.user.id;
-                    token=response.data.authorization.token
-                    localStorage.setItem("userId", JSON.stringify(userId))
-                    localStorage.setItem("token",JSON.stringify(token))
-                    window.location.href = "dashboard.html"           }    
+            const email = emailInput.value;
+            const pass = passwordInput.value;
+            const data = new FormData()
+            data.append("email", email)
+            data.append("password", pass)
+            const response = await axios.post(pages.base_url + "login", data);
+            // console.log(response.data);
+            if(response.data){
+                userId=response.data.user.id;
+                token=response.data.authorization.token
+                localStorage.setItem("userId", JSON.stringify(userId))
+                localStorage.setItem("token",JSON.stringify(token))
+                window.location.href = "dashboard.html" 
+            }    
         }
     });
+    
 }
+pages.page_forget_pass =() => {
+    console.log("forget password");
+    const emailInput = document.getElementById("email")
+    const errorMail=document.querySelector(".error-mail")
+    const password=document.getElementById("password")
+    const confirmPassword=document.getElementById("c-password")
+    const btnChange=document.getElementById("change")
+    const errorPwd=document.querySelector(".error-pwd")
+    const errorCPwd=document.querySelector(".error-c-pwd")
+    const errorConfirm=document.querySelector(".error-confirm")
+    emailInput.addEventListener("mouseleave",async()=>{
+        if (emailInput.value===""){
+            errorMail.style.display="block";
+    } else if(emailInput!==""){
+        errorMail.style.display="none";
+        const email = emailInput.value;
+        const data = new FormData()
+        data.append("email", email)
+        const response = await axios.post(pages.base_url + "check_user", data);
+        console.log(response.data.status);
+        if(response.data.status=="success"){
+            password.removeAttribute("disabled","disabled");
+            confirmPassword.removeAttribute("disabled","disabled")
+            btnChange.addEventListener("click",()=>{
+                if(password.value==="" ||confirmPassword.value===""){
+                    errorPwd.style.display="block";
+                    errorCPwd.style.display="block";
+                }
+                else{
+                    errorPwd.style.display="none";
+                    errorCPwd.style.display="none";
+                }                
+                if(password.value!==confirmPassword.value){
+                    errorConfirm.style.display="block";
+                }
+                else{                    
+                    errorConfirm.style.display="none";
+                }
+            })
+            
+            
+        }    
+    }
+})
+    
+
+    }
+
+

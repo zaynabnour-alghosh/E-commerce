@@ -114,3 +114,23 @@ body{
     box-shadow: 0 0 10px #719ECE;
     color:aliceblue;
 }
+.error-mail{
+    display: none;
+    font-size:12px;
+    color:rgb(26, 26, 186);
+}
+.error-pwd{
+    display: none;
+    font-size:12px;
+    color:rgb(26, 26, 186);
+}
+.error-c-pwd{
+    display: none;
+    font-size:12px;
+    color:rgb(26, 26, 186);
+}
+.error-confirm{
+    display: none;
+    font-size:12px;
+    color:rgb(26, 26, 186);
+}
