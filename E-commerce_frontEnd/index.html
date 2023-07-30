@@ -22,10 +22,13 @@
                         <div class="row">
                             <label for="email">Email</label>
                             <input type="email" placeholder="Email" id="email">
+                            <span class="error-mail">Email should not be empty</span>
                         </div>
                         <div class="row">                        
-                                <label for="password">Password</label>                     
+                            <label for="password">Password</label>                     
                             <input type="password" placeholder="Password" id="password">
+                            <span class="error-pass">Password should not be empty</span>
+
                         </div>     
                         <div class="row">
                             <a href="forget-password.html">Forget Password?</a>
@@ -34,14 +37,14 @@
                     <div class="login-footer">
                         <div class="row">                        
                             <div class="sign">
-                                <a href="dashboard.html">
-                                    <input type="button" class="signin" value="SIGN IN">
+                                <a href="#">
+                                    <input type="button" class="signin" value="SIGN IN" id="btnSignin">
                                 </a>
                             </div>
                         </div>
                         <div class="row">                        
                             <div>
-                                <h5>I don't have an account ? <a href="signup.html">Sign up</a></h5>
+                                <h5>I don't have an account ? <a href="#">Sign up</a></h5>
                             </div>
                         </div>
                     </div>
