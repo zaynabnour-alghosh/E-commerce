@@ -21,30 +21,40 @@
                             <div class="row">
                                 <label for="first_name">First Name</label>
                                 <input type="text" placeholder="First Name" id="first_name">
+                                <span class="error-first">First name should not be empty</span>
                             </div>
                             <div class="row">
                                 <label for="last_name">Last Name</label>
                                 <input type="text" placeholder="Last Name" id="last_name">
+                                <span class="error-last">Last name should not be empty</span>
                             </div>
                         </div>
                         <div class="rows">
                             <div class="row">
                                 <label for="phone">Mobile Number</label>
                                 <input type="text" placeholder="Mobile" id="phone">
+                                <span class="error-phone">Mobile should not be empty</span>
+
                             </div>
                             <div class="row">
                                 <label for="address">Address</label>
                                 <input type="text" placeholder="Address" id="address">
+                                <span class="error-add">Address should not be empty</span>
+
                             </div>
                         </div>
                         <div class="rows">
                             <div class="row">
                                 <label for="email">Email</label>
                                 <input type="email" placeholder="Email" id="email">
+                                <span class="error-mail">Email should not be empty</span>
+
                             </div>
                             <div class="row">                        
-                                    <label for="password">Password</label>                     
+                                <label for="password">Password</label>                     
                                 <input type="password" placeholder="Password" id="password">
+                                <span class="error-pass">Password should not be empty</span>
+
                             </div>    
                         </div>                      
                     </div>
@@ -52,12 +62,12 @@
                         <div class="rows rfooter">
                             <div class="row">                
                                 <a href="#">
-                                    <input type="button" class="btn" value="Clear">
+                                    <input type="button" class="btn" value="Clear" id="clear">
                                 </a>
                             </div>
                             <div class="row">
-                                <a href="index.html">
-                                    <input type="button" class="btn" value="SIGN UP">
+                                <a href="">
+                                    <input type="button" class="btn" value="SIGN UP" id="signup">
                                 </a>
                             </div>   
                         </div>
@@ -66,5 +76,10 @@
             </form>
         </div>
     </div>
+    <script src="src/script/script.js"></script>
+    <script src="src/script/axios.min.js"></script>
+    <script>
+        pages.loadFor("signup");
+    </script>
 </body>
 </html>

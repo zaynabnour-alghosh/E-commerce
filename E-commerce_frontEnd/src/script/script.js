@@ -109,9 +109,100 @@ pages.page_forget_pass =() => {
             })  
         }    
     }
-})
-    
+})  
 
-    }
+}
+pages.page_signup =() => {
+    console.log("register new user");
+    const firstName = document.getElementById("first_name")
+    const lastName = document.getElementById("last_name")
+    const mobileNum = document.getElementById("phone")
+    const address = document.getElementById("address")
+    const emailInput = document.getElementById("email")
+    const passwordInput = document.getElementById("password")
+   
+    const errorFirst=document.querySelector(".error-first");
+    const errorLast=document.querySelector(".error-last");
+    const errorPhone=document.querySelector(".error-phone");
+    const errorAdd=document.querySelector(".error-add");
+    const errorMail=document.querySelector(".error-mail");
+    const errorPass=document.querySelector(".error-pass");
 
+    const btnClear=document.getElementById("clear")
+    const btnSignUp=document.getElementById("signup")
+    btnClear.addEventListener("click",()=>{
+        firstName.value=" "
+        lastName.value=" "
+        mobileNum.value=" "
+        address.value=" "
+        emailInput.value=" "
+        passwordInput.value=" "
+    })
+    btnSignUp.addEventListener("click",async(e)=>{
+        e.preventDefault();
+        if (firstName.value==="")
+        {
+            errorFirst.style.display="block";
+        }
+        else{
+            errorFirst.style.display="none"
+        }
+        if (lastName.value==="")
+        {
+            errorLast.style.display="block";
+        }
+        else{
+            errorLast.style.display="none";
+        }
+        if (mobileNum.value==="")
+        {
+            errorPhone.style.display="block";
+        }
+        else{
+            errorPhone.style.display="none";
+        }
+        if (address.value==="")
+        {
+            errorAdd.style.display="block";
+        }
+        else{
+            errorAdd.style.display="none";
+        }
+        if (emailInput.value==="")
+        {
+            errorMail.style.display="block";
+        }
+        else{
+            errorMail.style.display="none";
+        }
+        if (passwordInput .value==="")
+        {
+            errorPass.style.display="block";
+        }
+        else{
+            errorPass.style.display="none";
+        }
+
+        const data = new FormData()
+        data.append("first_name", firstName.value)
+        data.append("last_name",lastName.value)
+        data.append("phone",mobileNum.value)
+        data.append("address",address.value)
+        data.append("email",emailInput.value)
+        data.append("password",passwordInput.value)
+        data.append("role_id",2)
+        const response = await axios.post(pages.base_url + "register", data);
+        console.log(response.data);
+        // userId=localStorage.getItem("userId")
+        // if(userId){
+        //     userId=response.data.user.id
+        //     localStorage.removeItem(token)
+        //     console.log(userId)
+        // }
+        // localStorage.setItem("token",JSON.stringify(token))
+        window.location.href = "index.html"       
+    })
+   
+
+}
 

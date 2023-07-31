@@ -118,3 +118,33 @@ body{
     box-shadow: 0 0 10px #719ECE;
     color:aliceblue;
 }
+.error-first{
+    display: none;
+    font-size:12px;
+    color:rgb(26, 26, 186);
+}
+.error-last{
+    display: none;
+    font-size:12px;
+    color:rgb(26, 26, 186);
+}
+.error-phone.error-phone{
+    display: none;
+    font-size:12px;
+    color:rgb(26, 26, 186);
+}
+.error-add{
+    display: none;
+    font-size:12px;
+    color:rgb(26, 26, 186);
+}
+.error-mail{
+    display: none;
+    font-size:12px;
+    color:rgb(26, 26, 186);
+}
+.error-pass{
+    display: none;
+    font-size:12px;
+    color:rgb(26, 26, 186);
+}
