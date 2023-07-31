@@ -24,9 +24,9 @@ class AdminController extends Controller
             $extension = $image->getClientOriginalExtension();
             $filename = uniqid() . '.' . $extension;
             Storage::disk('public')->put($filename, file_get_contents($image));
-            $product->image_data=$filename;
+            $product->image_data=$filename ? $request->category_id:$product->category_id;
         }   
-        $product->category_id = $request->category_id;
+        $product->category_id = $request->category_id ?$request->category_id:$product->category_id;
         $product->save();
 
         return json_encode(["products" => $product]);

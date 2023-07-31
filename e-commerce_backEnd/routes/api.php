@@ -8,7 +8,7 @@ use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FavouriteController;
-
+use App\Http\Middleware\VerifyAdmin;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +35,7 @@ Route::get('/delete_product/{id}', [AdminController::class, "deleteProduct"]);
 
 Route::post('/add_to_cart', [CartController::class, "addToCart"]);
 Route::post('/get_from_cart', [CartController::class, "getCartProducts"]);
+
 Route::get('/get_user/{id}', [UserController::class, "showUserInfo"]);
 Route::post('/update_user/{id}', [UserController::class, "updateUserInfo"]);
 Route::post('/check_user', [UserController::class, "checkEmail"]);
