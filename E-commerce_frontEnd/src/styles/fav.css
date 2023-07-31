@@ -107,6 +107,7 @@ height: 200px;
 width: 300px;
 border-radius: 10px;
 object-fit: cover;
+box-shadow: 5px 5px 8px #181744;
 }
 .fav-item{
     display: flex;

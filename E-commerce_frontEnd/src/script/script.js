@@ -338,12 +338,33 @@ pages.page_cart =async() => {
                                 </span>
                             </div>
                         `;
+    })
+}
+pages.page_fav_products = async() => {
 
+    console.log("favourites")
+    userId=localStorage.getItem("userId")
+    console.log(userId)
+    const data = new FormData()
+    data.append("user_id", userId)
+    const response = await axios.post(pages.base_url + "getFav", data);
+    console.log(response.data)
+    products=response.data
+    const container=document.querySelector(".fav-container")
+    products.forEach(product => {
+        const imageUrl = "http://localhost:8000/storage/" + product.image_data;
+        container.innerHTML+=`
+                            <div class="fav-item">
+                                <img src="${imageUrl}" alt="product">
+                                <span class="details">
+                                    <p>${product.name}</p>
+                                    <button>REMOVE</button>
+                                </span>
+                            </div>
+                         `;
     })
 
-                                            
 }
-
 
 
 
