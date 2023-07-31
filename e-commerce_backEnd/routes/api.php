@@ -35,6 +35,8 @@ Route::post('/add_to_cart', [CartController::class, "addToCart"]);
 Route::get('/get_user/{id}', [UserController::class, "showUserInfo"]);
 Route::post('/update_user/{id}', [UserController::class, "updateUserInfo"]);
 Route::post('/check_user', [UserController::class, "checkEmail"]);
+Route::post('/change_password', [UserController::class, "changePassword"]);
+
 
 Route::post('/addToFav', [FavouriteController::class, "addToFavorites"]);
 Route::post('/removeFav', [FavouriteController::class, "removeFavorites"]);
