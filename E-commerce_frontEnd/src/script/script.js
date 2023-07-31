@@ -1,5 +1,8 @@
 const pages = {}
-
+const cat= {}
+cat.loadFor = (id) => {
+    eval("singleCatDiv_" +id+"()" )
+}
 pages.base_url = "http://localhost:8000/api/";
 
 pages.print_message = (message) => {
@@ -210,12 +213,35 @@ pages.page_buyer_dashboard =async() => {
     const response = await axios("http://localhost:8000/api/get_categories");
     console.log(response.data);
     const categories = response.data.categories;
+    const categoriesID=[]
+    
+
     console.log(categories)       
     categories.forEach(category => {
-        categoryList.innerHTML+=`<div>
-                                    <a id =${category.id} href="">
+        categoryList.innerHTML+=`<div id =${category.id} class="single_cat">
+                                   
                                     ${category.name}
-                                    </a></div>`;
-});
+                                    </div>`; 
+                                    categoriesID.push(category.id);
+        
+
+                                })
+
+    const catDivs = Array.from(document.getElementsByClassName('single_cat'))
+    for(let i=0; i<catDivs.length;i++){
+        catDivs[i].addEventListener('click',showProductOfCategory)
+    }
+    async function showProductOfCategory(e){
+        const cId=e.target.id
+        categoryData=new FormData()
+        categoryData.append("category_id",cId)
+        console.log("clicked category of id: ",cId)
+        const responseProductPerCategory = await axios.post(pages.base_url + "product_per_category", categoryData);
+        console.log(responseProductPerCategory.data.products)
+        console.log("done")
+    }
 }
+
+
+
 

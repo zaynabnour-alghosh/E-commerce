@@ -250,3 +250,8 @@ body{
     padding-top: 0px;
     height:10px;
 }
+.single_cat:hover{
+    cursor: pointer;
+    font-weight:700 ;
+    height: 100%;
+}
