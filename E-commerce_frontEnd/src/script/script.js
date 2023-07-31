@@ -263,8 +263,9 @@ pages.page_buyer_dashboard =async() => {
                                                 <div class="action">
                                                     <button class="cart" id="${product.id}">ADD TO CART</button>
                                                     <button class="fav" id="${product.id}">
-                                                        <i class="fa fa-heart fa-2x"></i>
+                                                        <i class="fa fa-heart fa-2x"></i>                                                        
                                                     </button>
+                                                    <div class="fav-msg">hi</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -303,9 +304,12 @@ pages.page_buyer_dashboard =async() => {
         const favBtn = Array.from(document.getElementsByClassName('fav'))
         for(let i=0; i<favBtn.length;i++){
             favBtn[i].addEventListener('click',addProdToFav)
+            
             }
     
         async function addProdToFav(e){ 
+           
+
             const pId=e.target.id    
             console.log(pId)          
             const data = new FormData()
@@ -314,9 +318,20 @@ pages.page_buyer_dashboard =async() => {
             console.log("user of id: ",userId," favorited the product of product_id: ",pId)
             const response = await axios.post(pages.base_url + "addToFav", data);
             console.log(response.data);
+            const msg=response.data
+             if(msg=="Product already favorited"){
+                e.target.style.backgroundColor="#fd9ab6";
+               
+             }  
+             else{
+                e.target.style.backgroundColor="#11d7d8";
+             }
+                         
+           
+            }
         }
     }
-}
+
 
 
 

@@ -257,3 +257,10 @@ body{
     font-weight:700 ;
     height: 100%;
 }
+.fav-msg{
+    display: none;
+    font-size: 12px;
+    
+    font-family:'Montserrat' ;
+    height: 100%;
+}
