@@ -199,17 +199,23 @@ pages.page_signup =() => {
         data.append("password",passwordInput.value)
         data.append("role_id",2)
         const response = await axios.post(pages.base_url + "register", data);
-        console.log(response.data);
-        // userId=localStorage.getItem("userId")
-        // if(userId){
-        //     userId=response.data.user.id
-        //     localStorage.removeItem(token)
-        //     console.log(userId)
-        // }
-        // localStorage.setItem("token",JSON.stringify(token))
+        console.log(response.data);   
         window.location.href = "index.html"       
-    })
-   
-
+    })  
+}
+pages.page_buyer_dashboard =async() => {
+    userId=localStorage.getItem("userId")
+    console.log("dashboard of the buyer with id :",userId)
+    const categoryList=document.querySelector(".category-list-container")
+    const response = await axios("http://localhost:8000/api/get_categories");
+    console.log(response.data);
+    const categories = response.data.categories;
+    console.log(categories)       
+    categories.forEach(category => {
+        categoryList.innerHTML+=`<div>
+                                    <a id =${category.id} href="">
+                                    ${category.name}
+                                    </a></div>`;
+});
 }
 
