@@ -55,6 +55,7 @@ pages.page_index = () => {
                 userRole=response.data.user.role_id;
                 token=response.data.authorization.token
                 localStorage.setItem("userId", JSON.stringify(userId))
+                localStorage.setItem("userRole", JSON.stringify(userRole))
                 localStorage.setItem("token",JSON.stringify(token))
                 if(userRole==1){
                     window.location.href = "admin-dashboard.html"  
@@ -366,5 +367,58 @@ pages.page_fav_products = async() => {
 
 }
 
+pages.page_edit = () => {
+    console.log("admin editing")
+    userId=localStorage.getItem("userId")
+    console.log(userId)
+    const newName=document.getElementById("new_prod_name")
+    const newDesc=document.getElementById("new_prod_desc")
+    const newPrice=document.getElementById("new_price")
+    const newImg=document.getElementById("new_image")
+    const newCat=document.getElementById("new_cat")
+    const btnAdd=document.querySelector(".bt")
+  
+    // let newString = newImg.value.replace("C:\\fakepath\\", " ");
 
+
+    btnAdd.addEventListener("click",async()=>{
+        const token = localStorage.getItem("token");
+        console.log(token)
+    //        const config = {
+    //  headers: {
+    //    'Authorization': `Bearer ${token}`
+    //  }
+//    /};
+        console.log(newName.value,newDesc.value,newPrice.value,newImg.value,newCat.value)
+        const file = newImg.files[0];
+        const fileName = file.name;
+        const fileExtension = fileName.split('\\').pop();
+        console.log(fileExtension)
+        const data = new FormData();
+        data.append("name",newName.value)
+        data.append("description",newDesc.value)
+        data.append("price",newPrice.value)
+        data.append("image_data",file,fileExtension)
+        data.append("category_id",newCat.value)
+        console.log(data)
+        // , config
+            const response = await axios.post(pages.base_url + "add_update_product/add", data);
+            console.log(response.data);
+        //   } catch (error) {
+        //     console.error(error);
+        //   }
+        
+    })
+
+
+
+
+
+
+
+
+
+
+
+}
 
