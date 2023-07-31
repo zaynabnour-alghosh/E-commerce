@@ -226,8 +226,11 @@ pages.page_buyer_dashboard =async() => {
         catDivs[i].addEventListener('click',showProductOfCategory)
     }
     const productsContainer=document.querySelector(".prod-container")
-    const prodsID=[]
+    
     async function showProductOfCategory(e){
+       
+        productsContainer.innerHTML=" ";
+        
         const cId=e.target.id
         categoryData=new FormData()
         categoryData.append("category_id",cId)
@@ -284,9 +287,9 @@ pages.page_buyer_dashboard =async() => {
             // const btnFav=document.getElementById("btnAddFav")
 
 
-            prodsID.push(product.id);       
+                   
         })
-        console.log(prodsID)
+       
         const cartBtn = Array.from(document.getElementsByClassName('cart'))
         for(let i=0; i<cartBtn.length;i++){
         cartBtn[i].addEventListener('click',addProdToCart)
@@ -330,6 +333,8 @@ pages.page_buyer_dashboard =async() => {
            
             }
         }
+
+    
     }
 
 
