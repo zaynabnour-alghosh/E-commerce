@@ -16,4 +16,13 @@ class BuyerController extends Controller
         
         return json_encode(["products" => $products]);
     }
+    function getProductPerCategory(Request $request){          
+            $products = Product::all()->where("category_id",$request->category_id);
+            return json_encode(["products" => $products]);
+
+        }
+        
+       
 }
+
+
