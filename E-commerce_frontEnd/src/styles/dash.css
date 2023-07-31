@@ -92,6 +92,7 @@ body{
     display: flex;
     height: 100%;
     background-color:#facfd9;
+    width: 100%;
     
 }
 .left-dash-container img{

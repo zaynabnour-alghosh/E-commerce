@@ -222,9 +222,7 @@ pages.page_buyer_dashboard =async() => {
                                    
                                     ${category.name}
                                     </div>`; 
-                                    categoriesID.push(category.id);
-        
-
+                                    categoriesID.push(category.id);       
                                 })
 
     const catDivs = Array.from(document.getElementsByClassName('single_cat'))
@@ -239,6 +237,7 @@ pages.page_buyer_dashboard =async() => {
         const responseProductPerCategory = await axios.post(pages.base_url + "product_per_category", categoryData);
         console.log(responseProductPerCategory.data.products)
         console.log("done")
+        
     }
 }
 
