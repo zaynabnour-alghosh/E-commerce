@@ -190,7 +190,6 @@ pages.page_signup =() => {
         else{
             errorPass.style.display="none";
         }
-
         const data = new FormData()
         data.append("first_name", firstName.value)
         data.append("last_name",lastName.value)
@@ -211,9 +210,7 @@ pages.page_buyer_dashboard =async() => {
     const response = await axios("http://localhost:8000/api/get_categories");
     console.log(response.data);
     const categories = response.data.categories;
-    const categoriesID=[]
-    
-
+    const categoriesID=[]   
     console.log(categories)       
     categories.forEach(category => {
         categoryList.innerHTML+=`<div id =${category.id} class="single_cat">                                   
@@ -221,17 +218,13 @@ pages.page_buyer_dashboard =async() => {
                                  </div>`; 
         categoriesID.push(category.id);       
                                 })
-
     const catDivs = Array.from(document.getElementsByClassName('single_cat'))
     for(let i=0; i<catDivs.length;i++){
         catDivs[i].addEventListener('click',showProductOfCategory)
-    }
-    const productsContainer=document.querySelector(".prod-container")
-    
-    async function showProductOfCategory(e){
-       
-        productsContainer.innerHTML=" ";
-        
+        }
+    const productsContainer=document.querySelector(".prod-container")    
+    async function showProductOfCategory(e){       
+        productsContainer.innerHTML=" ";        
         const cId=e.target.id
         categoryData=new FormData()
         categoryData.append("category_id",cId)
@@ -239,15 +232,13 @@ pages.page_buyer_dashboard =async() => {
         const responseProductPerCategory = await axios.post(pages.base_url + "product_per_category", categoryData);
         console.log(responseProductPerCategory.data.products)
         console.log("done")
-
         prods=responseProductPerCategory.data.products;
         prods.forEach(product => {
             const imageUrl = "http://localhost:8000/storage/" + product.image_data;
             const image = document.createElement('img');
             image.src = imageUrl
             image.alt = 'product';
-            const prod=document.querySelector(".prod")
-            
+            const prod=document.querySelector(".prod")            
             productsContainer.innerHTML+=`
                                     <div class="prod" id=${product.id}>
                                     <img src="${imageUrl}" alt="home">
@@ -282,7 +273,6 @@ pages.page_buyer_dashboard =async() => {
         for(let i=0; i<cartBtn.length;i++){
         cartBtn[i].addEventListener('click',addProdToCart)
         }
-
         async function addProdToCart(e){ 
             const pId=e.target.id              
             const data = new FormData()
@@ -296,8 +286,7 @@ pages.page_buyer_dashboard =async() => {
         for(let i=0; i<favBtn.length;i++){
             favBtn[i].addEventListener('click',addProdToFav)
             
-            }
-    
+            }    
         async function addProdToFav(e){           
         const pId=e.target.id    
         console.log(pId)          
@@ -342,7 +331,6 @@ pages.page_cart =async() => {
     })
 }
 pages.page_fav_products = async() => {
-
     console.log("favourites")
     userId=localStorage.getItem("userId")
     console.log(userId)
@@ -363,13 +351,10 @@ pages.page_fav_products = async() => {
                                 </span>
                             </div>
                          `;
-    })
-
+         })
 }
 
 pages.page_edit = async() => {
-
-
     const response = await axios("http://localhost:8000/api/get_products");
     console.log(response.data);
     const products = response.data.products;
@@ -386,17 +371,17 @@ pages.page_edit = async() => {
             <div class="rows">
                 <div class="row">
                     <label for="prod_name">Name</label>
-                    <input type="text" placeholder="${product.name}" id="first_name">
+                    <input type="text" placeholder="${product.name}" id="prod_name" value="${product.name}">
                 </div>
                 <div class="row">
                     <label for="prod_desc">Description</label>
-                    <input type="text" placeholder="${product.description}" id="prod_desc">
+                    <input type="text" placeholder="${product.description}" id="prod_desc" value="${product.description}">
                 </div>
             </div>
             <div class="rows">
                 <div class="row">
                     <label for="price">Price</label>
-                    <input type="text" placeholder="${product.price}" id="price">
+                    <input type="text" placeholder="${product.price}" id="price"value="${product.price}" >
                 </div>
                 <div class="row">
                     <label for="image">Image</label>
@@ -415,11 +400,43 @@ pages.page_edit = async() => {
     </div>
                         `;
     })
-
-
-
-
-
+    const updateBtn = Array.from(document.getElementsByClassName('btnUpdate'))
+    for(let i=0; i<updateBtn.length;i++){
+        updateBtn[i].addEventListener('click',updateProduct)
+    }
+    const name=document.getElementById("prod_name")
+    const desc=document.getElementById("prod_desc")
+    const price=document.getElementById("price")
+    const newImgx=document.getElementById("image")
+   
+    async function updateProduct(e){
+        e.preventDefault()         
+        const file = newImgx.files[0];
+        const fileName = file.name;
+        const fileExtension = fileName.split('\\').pop();
+        console.log(fileExtension)         
+        const pId=e.target.id                   
+        const data = new FormData()        
+        data.append("product_id", pId)
+        data.append("name", name.value)
+        data.append("description", desc.value)
+        data.append("price", price.value)
+        data.append("image_data",file,fileExtension)        
+        const response = await axios.post(pages.base_url + `add_update_product/${pId}`, data);
+        console.log(response.data);
+    }
+    const delBtn = Array.from(document.getElementsByClassName('btnDelete'))
+    for(let i=0; i<delBtn.length;i++){
+        delBtn[i].addEventListener('click',deleteProd)
+        }
+    async function deleteProd(e){ 
+        e.preventDefault()          
+    const pId=e.target.id    
+    console.log(pId)          
+  
+    const response = await axios.get(pages.base_url + "/delete_product/"+pId);
+             console.log(response)
+    }
     console.log("admin editing")
     userId=localStorage.getItem("userId")
     console.log(userId)
@@ -428,19 +445,16 @@ pages.page_edit = async() => {
     const newPrice=document.getElementById("new_price")
     const newImg=document.getElementById("new_image")
     const newCat=document.getElementById("new_cat")
-    const btnAdd=document.querySelector(".bt")
-  
+    const btnAdd=document.querySelector(".bt")  
     // let newString = newImg.value.replace("C:\\fakepath\\", " ");
-
-
     btnAdd.addEventListener("click",async()=>{
         const token = localStorage.getItem("token");
         console.log(token)
-    //        const config = {
-    //  headers: {
-    //    'Authorization': `Bearer ${token}`
+    //  const config = {
+    //      headers: {
+    //          'Authorization': `Bearer ${token}`
     //  }
-//    /};
+    //    /};
         console.log(newName.value,newDesc.value,newPrice.value,newImg.value,newCat.value)
         const file = newImg.files[0];
         const fileName = file.name;
@@ -456,21 +470,6 @@ pages.page_edit = async() => {
         // , config
             const response = await axios.post(pages.base_url + "add_update_product/add", data);
             console.log(response.data);
-        //   } catch (error) {
-        //     console.error(error);
-        //   }
-        
     })
-
-
-
-
-
-
-
-
-
-
-
 }
 
