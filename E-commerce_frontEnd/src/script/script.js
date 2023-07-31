@@ -1,8 +1,5 @@
 const pages = {}
-const cat= {}
-cat.loadFor = (id) => {
-    eval("singleCatDiv_" +id+"()" )
-}
+
 pages.base_url = "http://localhost:8000/api/";
 
 pages.print_message = (message) => {
@@ -218,17 +215,18 @@ pages.page_buyer_dashboard =async() => {
 
     console.log(categories)       
     categories.forEach(category => {
-        categoryList.innerHTML+=`<div id =${category.id} class="single_cat">
-                                   
+        categoryList.innerHTML+=`<div id =${category.id} class="single_cat">                                   
                                     ${category.name}
-                                    </div>`; 
-                                    categoriesID.push(category.id);       
+                                 </div>`; 
+        categoriesID.push(category.id);       
                                 })
 
     const catDivs = Array.from(document.getElementsByClassName('single_cat'))
     for(let i=0; i<catDivs.length;i++){
         catDivs[i].addEventListener('click',showProductOfCategory)
     }
+    const productsContainer=document.querySelector(".prod-container")
+    const prodsID=[]
     async function showProductOfCategory(e){
         const cId=e.target.id
         categoryData=new FormData()
@@ -237,7 +235,48 @@ pages.page_buyer_dashboard =async() => {
         const responseProductPerCategory = await axios.post(pages.base_url + "product_per_category", categoryData);
         console.log(responseProductPerCategory.data.products)
         console.log("done")
-        
+
+        prods=responseProductPerCategory.data.products;
+        prods.forEach(product => {
+            const imageUrl = "http://localhost:8000/storage/" + product.image_data;
+            const image = document.createElement('img');
+            image.src = imageUrl
+            image.alt = 'product';
+            const prod=document.querySelector(".prod")
+            
+            productsContainer.innerHTML+=`
+                                    <div class="prod" id=${product.id}>
+                                    <img src="${imageUrl}" alt="home">
+                                        <span class="prod-name">${product.name}</span>
+                                        <div class="details">
+                                            <div class="content-prod">
+                                                <div class="prod-details">
+                                                    <div>
+                                                        <img src="${imageUrl}" alt="">
+                                                    </div>
+                                                    <div class="details-content">                                                        
+                                                        <h4>${product.name}</h4>
+                                                        <span> <h3>$ ${product.price}</h3></span>
+                                                        <p>${product.description}</p>
+                                                    </div>
+                                                </div>  
+                                                <div class="action">
+                                                    <button class="cart" id="btnAddCart">ADD TO CART</button>
+                                                    <button class="fav" id="btnAddFav">
+                                                        <i class="fa fa-heart fa-2x"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `; 
+           
+
+            prodsID.push(product.id);       
+        })
+
+
+
     }
 }
 
