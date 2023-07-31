@@ -275,19 +275,6 @@ pages.page_buyer_dashboard =async() => {
                                     </div>
                                 `; 
             prodId=product.id
-            
-            // btnAdd.addEventListener("click",async()=>{
-            //     const data = new FormData()
-            //     data.append("user_id", userId)
-            //     data.append("product_id", prodId)
-            //     console.log(userId,prodId)
-                // const response2 = await axios.post(pages.base_url + "change_password", data2);
-                // console.log(response2.data.state);
-            // })
-            // const btnFav=document.getElementById("btnAddFav")
-
-
-                   
         })
        
         const cartBtn = Array.from(document.getElementsByClassName('cart'))
@@ -310,33 +297,52 @@ pages.page_buyer_dashboard =async() => {
             
             }
     
-        async function addProdToFav(e){ 
-           
-
-            const pId=e.target.id    
-            console.log(pId)          
-            const data = new FormData()
-            data.append("user_id", userId)
-            data.append("product_id", pId)
-            console.log("user of id: ",userId," favorited the product of product_id: ",pId)
-            const response = await axios.post(pages.base_url + "addToFav", data);
-            console.log(response.data);
-            const msg=response.data
-             if(msg=="Product already favorited"){
-                e.target.style.backgroundColor="#fd9ab6";
-               
-             }  
-             else{
-                e.target.style.backgroundColor="#11d7d8";
-             }
-                         
-           
-            }
+        async function addProdToFav(e){           
+        const pId=e.target.id    
+        console.log(pId)          
+        const data = new FormData()
+        data.append("user_id", userId)
+        data.append("product_id", pId)
+        console.log("user of id: ",userId," favorited the product of product_id: ",pId)
+        const response = await axios.post(pages.base_url + "addToFav", data);
+        console.log(response.data);
+        const msg=response.data
+            if(msg=="Product already favorited"){
+            e.target.style.backgroundColor="#fd9ab6";
+            }  
+            else{
+            e.target.style.backgroundColor="#11d7d8";
+            }                      
         }
+    }   
+}
+pages.page_cart =async() => {
+    console.log("cart")
+    userId=localStorage.getItem("userId")
+    console.log(userId)
+    const data = new FormData()
+    data.append("user_id", userId)
+    const response = await axios.post(pages.base_url + "get_from_cart", data);
+    console.log(response.data)
+    products=response.data
+    const container=document.querySelector(".cart-container")
+    products.forEach(product => {
+        const imageUrl = "http://localhost:8000/storage/" + product.image_data;
+        container.innerHTML+=`
+                            <div class="cart-item">
+                                <img src="${imageUrl}" alt="product">
+                                <span class="details">
+                                    <p>${product.name}</p>
+                                    <p><button>+</button><span  class="qty"> ${product.count}</span><button>-</button>
+                                    </p>
+                                </span>
+                            </div>
+                        `;
 
-    
-    }
+    })
 
+                                            
+}
 
 
 

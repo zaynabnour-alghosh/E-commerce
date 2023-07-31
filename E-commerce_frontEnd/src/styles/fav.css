@@ -2,9 +2,15 @@ body{
     font-family: 'Montserrat';font-size: 22px;
     color:rgb(56, 36, 67);
 }
+.main-container{
+    display: flex;
+    max-height: 1400px;
+    height: 100vh;
+}
 .container{
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 .cont{
     display: flex;
