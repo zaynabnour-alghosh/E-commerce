@@ -52,10 +52,17 @@ pages.page_index = () => {
             // console.log(response.data);
             if(response.data){
                 userId=response.data.user.id;
+                userRole=response.data.user.role_id;
                 token=response.data.authorization.token
                 localStorage.setItem("userId", JSON.stringify(userId))
                 localStorage.setItem("token",JSON.stringify(token))
-                window.location.href = "dashboard.html" 
+                if(userRole==1){
+                    window.location.href = "admin-dashboard.html"  
+                }
+                else if(userRole==2){
+                    window.location.href = "dashboard.html"
+                }
+                 
             }    
         }
     });
