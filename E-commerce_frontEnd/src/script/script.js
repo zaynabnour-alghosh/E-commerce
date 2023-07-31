@@ -367,7 +367,59 @@ pages.page_fav_products = async() => {
 
 }
 
-pages.page_edit = () => {
+pages.page_edit = async() => {
+
+
+    const response = await axios("http://localhost:8000/api/get_products");
+    console.log(response.data);
+    const products = response.data.products;
+    console.log(products)
+    const container=document.querySelector(".f")
+    products.forEach(product => {
+        const imageUrl = "http://localhost:8000/storage/" + product.image_data;
+        container.innerHTML+=`
+        <div class="prod-edit">
+        <div class="edit-header">
+            <img src="${imageUrl}" alt="product">                                                               
+        </div>
+        <div class="edit-body">
+            <div class="rows">
+                <div class="row">
+                    <label for="prod_name">Name</label>
+                    <input type="text" placeholder="${product.name}" id="first_name">
+                </div>
+                <div class="row">
+                    <label for="prod_desc">Description</label>
+                    <input type="text" placeholder="${product.description}" id="prod_desc">
+                </div>
+            </div>
+            <div class="rows">
+                <div class="row">
+                    <label for="price">Price</label>
+                    <input type="text" placeholder="${product.price}" id="price">
+                </div>
+                <div class="row">
+                    <label for="image">Image</label>
+                    <input type="file"  id="image" class="file">
+                </div>
+            </div>
+        </div> 
+        <div class="edit-footer">
+            <div class="rows rfooter">
+                <div class="rowf">                
+                    <button class="btn btnDelete" id=${product.id}>Delete</button>
+                    <button class="btn btnUpdate" id=${product.id}>Update</button>
+                </div>                                                                      
+            </div>
+        </div>   
+    </div>
+                        `;
+    })
+
+
+
+
+
     console.log("admin editing")
     userId=localStorage.getItem("userId")
     console.log(userId)
