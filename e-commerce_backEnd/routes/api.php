@@ -36,6 +36,7 @@ Route::get('/get_user/{id}', [UserController::class, "showUserInfo"]);
 Route::post('/update_user/{id}', [UserController::class, "updateUserInfo"]);
 Route::post('/check_user', [UserController::class, "checkEmail"]);
 Route::post('/change_password', [UserController::class, "changePassword"]);
+Route::get('/get_categories', [UserController::class, "viewCategories"]);
 
 
 Route::post('/addToFav', [FavouriteController::class, "addToFavorites"]);

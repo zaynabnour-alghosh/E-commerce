@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
@@ -40,4 +41,11 @@ class UserController extends Controller
         $user->save();
         return response()->json(["updated_info"=>$user,"state"=>"successully updated"]);
     }
+    public function viewCategories(){
+        $cat=Category::all();
+        return response()->json(["categories"=>$cat]);
+    }
+
+
+
 }
