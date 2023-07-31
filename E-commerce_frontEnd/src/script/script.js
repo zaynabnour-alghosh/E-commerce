@@ -261,8 +261,8 @@ pages.page_buyer_dashboard =async() => {
                                                     </div>
                                                 </div>  
                                                 <div class="action">
-                                                    <button class="cart" id="btnAddCart">ADD TO CART</button>
-                                                    <button class="fav" id="btnAddFav">
+                                                    <button class="cart" id="${product.id}">ADD TO CART</button>
+                                                    <button class="fav" id="${product.id}">
                                                         <i class="fa fa-heart fa-2x"></i>
                                                     </button>
                                                 </div>
@@ -270,13 +270,51 @@ pages.page_buyer_dashboard =async() => {
                                         </div>
                                     </div>
                                 `; 
-           
+            prodId=product.id
+            
+            // btnAdd.addEventListener("click",async()=>{
+            //     const data = new FormData()
+            //     data.append("user_id", userId)
+            //     data.append("product_id", prodId)
+            //     console.log(userId,prodId)
+                // const response2 = await axios.post(pages.base_url + "change_password", data2);
+                // console.log(response2.data.state);
+            // })
+            // const btnFav=document.getElementById("btnAddFav")
+
 
             prodsID.push(product.id);       
         })
+        console.log(prodsID)
+        const cartBtn = Array.from(document.getElementsByClassName('cart'))
+        for(let i=0; i<cartBtn.length;i++){
+        cartBtn[i].addEventListener('click',addProdToCart)
+        }
 
-
-
+        async function addProdToCart(e){ 
+            const pId=e.target.id              
+            const data = new FormData()
+            data.append("user_id", userId)
+            data.append("product_id", pId)
+            console.log("user of id: ",userId," added product of product_id: ",pId," to the cart")
+            const response = await axios.post(pages.base_url + "add_to_cart", data);
+            console.log(response.data);
+        }
+        const favBtn = Array.from(document.getElementsByClassName('fav'))
+        for(let i=0; i<favBtn.length;i++){
+            favBtn[i].addEventListener('click',addProdToFav)
+            }
+    
+        async function addProdToFav(e){ 
+            const pId=e.target.id    
+            console.log(pId)          
+            const data = new FormData()
+            data.append("user_id", userId)
+            data.append("product_id", pId)
+            console.log("user of id: ",userId," favorited the product of product_id: ",pId)
+            const response = await axios.post(pages.base_url + "addToFav", data);
+            console.log(response.data);
+        }
     }
 }
 
