@@ -44,6 +44,7 @@ Route::get('/get_categories', [UserController::class, "viewCategories"]);
 Route::post('/product_per_category', [BuyerController::class, "getProductPerCategory"]);
 
 Route::post('/addToFav', [FavouriteController::class, "addToFavorites"]);
+Route::post('/getFav', [FavouriteController::class, "getFavProducts"]);
 Route::post('/removeFav', [FavouriteController::class, "removeFavorites"]);
 
 
